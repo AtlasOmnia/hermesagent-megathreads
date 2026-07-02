@@ -1,5 +1,5 @@
 name: Add or update a free model/API
-about: Suggest a provider, model, or correction for a megathread
+description: Suggest a provider, model, or correction for a megathread
 labels: [update]
 body:
   - type: input

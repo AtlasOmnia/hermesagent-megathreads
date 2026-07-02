@@ -1,0 +1,30 @@
+name: Add or update a free model/API
+about: Suggest a provider, model, or correction for a megathread
+labels: [update]
+body:
+  - type: input
+    id: provider
+    attributes:
+      label: Provider or model name
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Official link or docs
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should be added or changed?
+      description: Include free-tier details, quota limits, OpenAI compatibility, and whether you tested it with Hermes.
+    validations:
+      required: true
+  - type: input
+    id: verified
+    attributes:
+      label: Date verified
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true

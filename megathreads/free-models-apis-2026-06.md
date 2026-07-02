@@ -374,14 +374,8 @@ explicit zero-retention guarantees.
 
 ------------------------------------------------------------------------
 
-**Corrections or additions?** Drop a comment and I'll update. This is a
+**Corrections or additions?** Open an issue or pull request in this repo. This is a
 living resource — new free models appear regularly and rankings shift.
-
-
-submitted by
-[/u/Jonathan_Rivera](https://old.reddit.com/user/Jonathan_Rivera)\
-[\[link\]](https://old.reddit.com/r/hermesagent/comments/1uj9nkn/free_models_apis_for_hermes_agent_megathread_june/)
-[\[comments\]](https://old.reddit.com/r/hermesagent/comments/1uj9nkn/free_models_apis_for_hermes_agent_megathread_june/)
 
 ---
 

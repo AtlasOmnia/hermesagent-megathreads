@@ -6,7 +6,6 @@
 >
 > This file preserves the original megathread content and adds comment-sourced updates where users clarified practical usage, GitHub maintenance, and contribution workflow.
 
-<div class="md">
 
 **LAST UPDATED: June 29, 2026**\
 **Scope:** Free models available via OpenRouter and other free API
@@ -378,7 +377,6 @@ explicit zero-retention guarantees.
 **Corrections or additions?** Drop a comment and I'll update. This is a
 living resource — new free models appear regularly and rankings shift.
 
-</div>
 
 submitted by
 [/u/Jonathan_Rivera](https://old.reddit.com/user/Jonathan_Rivera)\

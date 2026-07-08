@@ -28,6 +28,20 @@ Want to set up Hermes Agent (by Nous Research) but don't know where to start? Th
 
 ---
 
+### Jargon Buster (Quick Reference)
+
+| Term | Plain English |
+|------|---------------|
+| **LLM** | The AI model that powers Hermes (like an engine in a car) |
+| **API key** | A password that lets Hermes talk to a cloud AI service |
+| **VRAM** | Graphics card memory — needed if you run models locally on your GPU |
+| **Provider** | The company or service supplying the AI model (OpenAI, DeepSeek, Google, etc.) |
+| **Gateway** | The part of Hermes that runs 24/7 so you can chat from your phone |
+| **Profile** | A completely separate Hermes identity with its own settings, memory, and skills |
+| **Tool calling** | The model's ability to DO things (search web, run commands) rather than just chat |
+
+---
+
 ## Part 1: Installation — The Two Paths
 
 ### Path A: Desktop Installer (Recommended for Beginners)
@@ -139,7 +153,7 @@ This is the second-most common frustration: you enable tools, they still don't w
 
 ## Part 4: Common First-Time Pitfalls
 
-### Pitfall #1: The "Fetus in Fetu" Install
+### Pitfall #1: The "Fetus in Fetu" Install (Nested/Double Installation)
 
 **Symptom:** You installed Hermes, then installed it again from a different method, and now you have TWO Hermes directories fighting each other. Docker containers get corrupted, configs conflict, nothing works.
 
@@ -294,37 +308,7 @@ hermes gateway start        # Start the service
 
 ---
 
-## Part 9: Knowledge Table — Every Setup-Related Tool & Concept
-
-| Category | Item | Description | Best For | Watch For |
-|----------|------|-------------|----------|-----------|
-| **Install** | Desktop installer | One-click macOS/Windows install | Beginners | Recommended over CLI-only |
-| **Install** | curl one-liner | One-command Linux/macOS/WSL install | Most users | Don't mix with git clone or Docker |
-| **Install** | PowerShell install | Windows native install | Windows without WSL | Both paths are well-supported now |
-| **Install** | Docker install | Containerized Hermes | Servers, CI/CD pipelines | Not for daily desktop use |
-| **Setup** | `hermes setup --portal` | Quick Setup via Nous Portal | Beginners, zero-config | Requires internet |
-| **Setup** | `hermes setup` | Full interactive wizard | Power users, local models | Can be overwhelming |
-| **Model** | Nous Portal | Managed cloud models | Beginners | Free tier available |
-| **Model** | DeepSeek V3 | Cloud API, cheap | Best value cloud | Text-only (no vision) |
-| **Model** | Gemini 2.5 Flash | Google cloud, free tier | Best free cloud | Rate limits apply |
-| **Model** | Local LLM (LM Studio) | Local inference on your GPU | Privacy, offline | Needs 8GB+ VRAM minimum |
-| **Model** | Local LLM (Ollama) | Local inference, easy setup | Quick local testing | Slower than LM Studio |
-| **Model** | OpenRouter | Multi-provider API gateway | Model comparison, one API key | Adds latency |
-| **Interface** | Desktop App | Visual app with Projects | Multi-profile, visual users | macOS/Windows (Linux uses CLI) |
-| **Interface** | CLI | Terminal-based chat | SSH, scripting, speed | No visual pickers |
-| **Gateway** | Telegram/Discord/WhatsApp | Chat from your phone | Mobile access | Gateway must stay running |
-| **Tool** | Web search | Internet search + extraction | Research, current events | Enable early |
-| **Tool** | Terminal | Run shell commands | Automation, coding | Approval prompts by default |
-| **Tool** | File | Read/write files | Productivity | Respects filesystem permissions |
-| **Tool** | Memory | Cross-session recall | Long-term use | Enable day one |
-| **Config** | `hermes doctor --fix` | Health check + auto-repair | Troubleshooting | Run first when stuck |
-| **Config** | `hermes config check` | Config validation | After upgrades | New in v0.18.0 |
-| **Config** | `hermes config migrate` | Update config for new options | After upgrades | Run after `hermes update` |
-| **Profile** | `hermes profile create` | New isolated instance | Work/personal split | Start with one profile |
-
----
-
-## Part 10: Sources & Threads
+## Part 9: Sources & Threads
 
 ### Community Threads (r/hermesagent)
 
@@ -360,6 +344,36 @@ hermes gateway start        # Start the service
 
 - [LumaDock: Hermes Agent Complete Self-Hosting Guide](https://lumadock.com/tutorials/hermes-agent-complete-guide) — Jun 17, 2026
 - [YouTube: Hermes Agent + Ollama Local Install](https://www.youtube.com/watch?v=aAQWB3-XD5s) — Apr 23, 2026
+
+---
+
+## Part 10: Knowledge Table — Every Setup-Related Tool & Concept
+
+| Category | Item | Description | Best For | Watch For |
+|----------|------|-------------|----------|-----------|
+| **Install** | Desktop installer | One-click macOS/Windows install | Beginners | Recommended over CLI-only |
+| **Install** | curl one-liner | One-command Linux/macOS/WSL install | Most users | Don't mix with git clone or Docker |
+| **Install** | PowerShell install | Windows native install | Windows without WSL | Both paths are well-supported now |
+| **Install** | Docker install | Containerized Hermes | Servers, CI/CD pipelines | Not for daily desktop use |
+| **Setup** | `hermes setup --portal` | Quick Setup via Nous Portal | Beginners, zero-config | Requires internet |
+| **Setup** | `hermes setup` | Full interactive wizard | Power users, local models | Can be overwhelming |
+| **Model** | Nous Portal | Managed cloud models | Beginners | Free tier available |
+| **Model** | DeepSeek V3 | Cloud API, cheap | Best value cloud | Text-only (no vision) |
+| **Model** | Gemini 2.5 Flash | Google cloud, free tier | Best free cloud | Rate limits apply |
+| **Model** | Local LLM (LM Studio) | Local inference on your GPU | Privacy, offline | Needs 8GB+ VRAM minimum |
+| **Model** | Local LLM (Ollama) | Local inference, easy setup | Quick local testing | Slower than LM Studio |
+| **Model** | OpenRouter | Multi-provider API gateway | Model comparison, one API key | Adds latency |
+| **Interface** | Desktop App | Visual app with Projects | Multi-profile, visual users | macOS/Windows (Linux uses CLI) |
+| **Interface** | CLI | Terminal-based chat | SSH, scripting, speed | No visual pickers |
+| **Gateway** | Telegram/Discord/WhatsApp | Chat from your phone | Mobile access | Gateway must stay running |
+| **Tool** | Web search | Internet search + extraction | Research, current events | Enable early |
+| **Tool** | Terminal | Run shell commands | Automation, coding | Approval prompts by default |
+| **Tool** | File | Read/write files | Productivity | Respects filesystem permissions |
+| **Tool** | Memory | Cross-session recall | Long-term use | Enable day one |
+| **Config** | `hermes doctor --fix` | Health check + auto-repair | Troubleshooting | Run first when stuck |
+| **Config** | `hermes config check` | Config validation | After upgrades | New in v0.18.0 |
+| **Config** | `hermes config migrate` | Update config for new options | After upgrades | Run after `hermes update` |
+| **Profile** | `hermes profile create` | New isolated instance | Work/personal split | Start with one profile |
 
 ---
 

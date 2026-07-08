@@ -52,21 +52,17 @@ If you skip the Desktop installer and do CLI-only, you can add the desktop app l
 
 ### Path B: Command-Line Only
 
-```bash
-# Linux / macOS / WSL2 / Android (Termux)
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+    # Linux / macOS / WSL2 / Android (Termux)
+    curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
-# Windows (native PowerShell)
-iex (irm https://hermes-agent.nousresearch.com/install.ps1)
-```
+    # Windows (native PowerShell)
+    iex (irm https://hermes-agent.nousresearch.com/install.ps1)
 
 After install, reload your shell (`source ~/.zshrc` or `source ~/.bashrc`) and run:
 
-```bash
-hermes setup --portal       # Quick Setup: zero-config, Nous Portal model
-# OR
-hermes setup                # Full wizard: pick model, tools, gateway, everything
-```
+    hermes setup --portal       # Quick Setup: zero-config, Nous Portal model
+    # OR
+    hermes setup                # Full wizard: pick model, tools, gateway, everything
 
 `hermes setup --portal` signs you into Nous Portal, picks a working model, and drops you into chat. No config files, no API keys, no model selection stress. If you just want to see what Hermes can do, this is the path.
 
@@ -89,20 +85,18 @@ hermes setup                # Full wizard: pick model, tools, gateway, everythin
 
 This is where most beginners get stuck. Here's the decision tree:
 
-```
-Do you want to pay for API access?
-├── YES → Use Nous Portal (hermes setup --portal) — auto-selects a capable model
-│         OR: OpenRouter with any model you prefer (~$0-5/month)
-│
-└── NO → Do you have a GPU?
-    ├── YES (8GB+ VRAM) → Run a local model via LM Studio or Ollama
-    │   └── Recommended: Qwen2.5-7B or Gemma 3 12B (good tool-calling)
+    Do you want to pay for API access?
+    ├── YES → Use Nous Portal (hermes setup --portal) — auto-selects a capable model
+    │         OR: OpenRouter with any model you prefer (~$0-5/month)
     │
-    ├── YES but <8GB VRAM → Treat as "no GPU" for Hermes purposes — use free cloud tier
-    │
-    └── NO → Use a free cloud API tier
-        └── Google Gemini (free tier) or DeepSeek (dirt-cheap API)
-```
+    └── NO → Do you have a GPU?
+        ├── YES (8GB+ VRAM) → Run a local model via LM Studio or Ollama
+        │   └── Recommended: Qwen2.5-7B or Gemma 3 12B (good tool-calling)
+        │
+        ├── YES but <8GB VRAM → Treat as "no GPU" for Hermes purposes — use free cloud tier
+        │
+        └── NO → Use a free cloud API tier
+            └── Google Gemini (free tier) or DeepSeek (dirt-cheap API)
 
 ### Community Consensus on Beginner Models
 
@@ -129,12 +123,10 @@ Hermes ships with many tools. You don't need all of them on day one. Here's what
 
 ### Day 1 Tools
 
-```bash
-hermes tools enable web        # Web search and content extraction
-hermes tools enable file       # Read/write files on your system
-hermes tools enable terminal   # Run shell commands
-hermes tools enable memory     # Remember preferences across sessions
-```
+    hermes tools enable web        # Web search and content extraction
+    hermes tools enable file       # Read/write files on your system
+    hermes tools enable terminal   # Run shell commands
+    hermes tools enable memory     # Remember preferences across sessions
 
 ### Why These Four?
 
@@ -219,13 +211,12 @@ The community is split on profiles. The "minimalists" run one profile for everyt
 For a comprehensive profile strategy guide, see the [Multi-Agent & Profiles Megathread](https://www.reddit.com/r/hermesagent/comments/1ucmvi8/).
 
 **Key commands:**
-```bash
-hermes profile create <name>     # New profile
-hermes --profile <name>          # Use a profile once
-hermes profile use <name>        # Set as default
-hermes profile list              # See all profiles
-<name> chat                      # v0.18.0: every profile gets its own shell command
-```
+
+    hermes profile create <name>     # New profile
+    hermes --profile <name>          # Use a profile once
+    hermes profile use <name>        # Set as default
+    hermes profile list              # See all profiles
+    <name> chat                      # v0.18.0: every profile gets its own shell command
 
 ---
 
@@ -256,11 +247,9 @@ The desktop app includes:
 
 Want Hermes on your phone via Telegram, Discord, or WhatsApp? Set up the gateway:
 
-```bash
-hermes gateway setup        # Pick your platforms
-hermes gateway install      # Install as background service
-hermes gateway start        # Start the service
-```
+    hermes gateway setup        # Pick your platforms
+    hermes gateway install      # Install as background service
+    hermes gateway start        # Start the service
 
 **Persistence tips:**
 - **Linux:** `sudo loginctl enable-linger $USER` (prevents death on logout)

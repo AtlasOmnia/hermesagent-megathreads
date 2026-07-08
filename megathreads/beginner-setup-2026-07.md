@@ -4,7 +4,7 @@
 **Covers: v0.18.0 ("The Judgment Release") + community threads from June–July 2026**
 
 **GitHub mirror (permanent, Google-indexed):** [github.com/AtlasOmnia/hermesagent-megathreads](https://github.com/AtlasOmnia/hermesagent-megathreads/blob/main/megathreads/beginner-setup-2026-07.md)
-**Also see:** [Best Free Models & APIs for Hermes Agent](https://www.reddit.com/r/hermesagent/comments/1un5qjo/) · [Model Civil War — Local vs Cloud vs Hybrid](https://www.reddit.com/r/hermesagent/comments/1upvlm3/) · [Multi-Agent & Profiles Megathread](https://www.reddit.com/r/hermesagent/comments/1ucmvi8/) · [Self-Host Hermes on a VPS](https://www.reddit.com/r/hermesagent/comments/1tbngbz/)
+**Also see:** [Best Free Models & APIs for Hermes Agent](https://www.reddit.com/r/hermesagent/comments/1uj9nkn/) · [Model Civil War — Local vs Cloud vs Hybrid](https://www.reddit.com/r/hermesagent/comments/1uqd00s/) · [Multi-Agent & Profiles Megathread](https://www.reddit.com/r/hermesagent/comments/1ucmvi8/) · [Self-Host Hermes on a VPS](https://www.reddit.com/r/hermesagent/comments/1tw9lbd/)
 
 ---
 
@@ -119,7 +119,7 @@ Do you want to pay for API access?
 
 **Model switching:** Change models anytime with `hermes model` (interactive picker) or `/model <name>` in-session. The fuzzy picker in v0.18.0 lets you type "v4fl" and get `deepseek-v4-flash`. [thread: "Help me understand how to use agents and models", May 10](https://www.reddit.com/r/hermesagent/comments/1t910oz/)
 
-For a deeper dive into model options, see the [Best Free Models & APIs Megathread](https://www.reddit.com/r/hermesagent/comments/1un5qjo/). For the local vs cloud vs hybrid debate: [Model Civil War Megathread](https://www.reddit.com/r/hermesagent/comments/1upvlm3/).
+For a deeper dive into model options, see the [Best Free Models & APIs Megathread](https://www.reddit.com/r/hermesagent/comments/1uj9nkn/). For the local vs cloud vs hybrid debate: [Model Civil War Megathread](https://www.reddit.com/r/hermesagent/comments/1uqd00s/).
 
 ---
 
@@ -266,7 +266,7 @@ hermes gateway start        # Start the service
 - **Linux:** `sudo loginctl enable-linger $USER` (prevents death on logout)
 - **macOS:** `hermes gateway install` creates a launchd plist — survives reboots
 - **WSL2:** Set `systemd=true` in `/etc/wsl.conf` or the gateway dies on WSL close
-- **VPS:** See the [Self-Host Hermes on a VPS Megathread](https://www.reddit.com/r/hermesagent/comments/1tbngbz/) for full deployment walkthrough
+- **VPS:** See the [Self-Host Hermes on a VPS Megathread](https://www.reddit.com/r/hermesagent/comments/1tw9lbd/) for full deployment walkthrough
 
 ---
 
@@ -276,7 +276,7 @@ hermes gateway start        # Start the service
    **A:** Type `hermes` and start chatting. Or run `hermes setup --portal` for the guided Quick Setup with a working model.
 
 2. **Q: Do I need to pay for anything?**
-   **A:** Hermes Agent is free and open-source (MIT). You only pay for cloud model API access if you choose a paid model. Free options exist: Nous Portal free tier, Google Gemini free tier, or local models. See the [Free Models & APIs Megathread](https://www.reddit.com/r/hermesagent/comments/1un5qjo/).
+   **A:** Hermes Agent is free and open-source (MIT). You only pay for cloud model API access if you choose a paid model. Free options exist: Nous Portal free tier, Google Gemini free tier, or local models. See the [Free Models & APIs Megathread](https://www.reddit.com/r/hermesagent/comments/1uj9nkn/).
 
 3. **Q: What's the best free model to start with?**
    **A:** Google Gemini 2.5 Flash (free tier, good tool-calling) or DeepSeek V3 (dirt-cheap, excellent tool-calling). For local: Qwen2.5-7B or Gemma 3 12B.
@@ -294,7 +294,7 @@ hermes gateway start        # Start the service
    **A:** Hermes is provider-agnostic (any model), has persistent memory, runs on messaging platforms, and is fully open-source. Claude Code is Anthropic-only. Cursor is an IDE, not an agent. [thread: "Hermes vs. Claude Code (Remote Control)", Jun 30](https://www.reddit.com/r/hermesagent/comments/1ujx3kr/)
 
 8. **Q: How do I keep Hermes running 24/7?**
-   **A:** `hermes gateway install` (systemd on Linux, launchd on macOS). Enable linger: `sudo loginctl enable-linger $USER`. For a full VPS setup, see the [VPS Megathread](https://www.reddit.com/r/hermesagent/comments/1tbngbz/).
+   **A:** `hermes gateway install` (systemd on Linux, launchd on macOS). Enable linger: `sudo loginctl enable-linger $USER`. For a full VPS setup, see the [VPS Megathread](https://www.reddit.com/r/hermesagent/comments/1tw9lbd/).
 
 9. **Q: My config changes don't work. What's wrong?**
    **A:** Some changes need a restart: `hermes gateway restart` (gateway), exit/relaunch (CLI), `/reset` (tools). Model changes via `/model` are immediate but session-only; persistent changes need `hermes config set model.default <model>`.
@@ -329,10 +329,10 @@ hermes gateway start        # Start the service
 - [My simplest yet effective hermes agent profile setup, May 7, 2026](https://www.reddit.com/r/hermesagent/comments/1t66lhy/)
 - [Hermes vs. Claude Code (Remote Control), Jun 30, 2026](https://www.reddit.com/r/hermesagent/comments/1ujx3kr/)
 - [Hermes Agent with Open Source LLM Setup help, Jun 8, 2026](https://www.reddit.com/r/hermesagent/comments/1u0djpe/)
-- [Best Free Models & APIs Megathread, Jun 2026](https://www.reddit.com/r/hermesagent/comments/1un5qjo/)
+- [Best Free Models & APIs Megathread, Jun 2026](https://www.reddit.com/r/hermesagent/comments/1uj9nkn/)
 - [Multi-Agent & Profiles Megathread, Jun 22, 2026](https://www.reddit.com/r/hermesagent/comments/1ucmvi8/)
-- [Model Civil War Megathread, Jul 2026](https://www.reddit.com/r/hermesagent/comments/1upvlm3/)
-- [Self-Host Hermes on a VPS Megathread, May 2026](https://www.reddit.com/r/hermesagent/comments/1tbngbz/)
+- [Model Civil War Megathread, Jul 2026](https://www.reddit.com/r/hermesagent/comments/1uqd00s/)
+- [Self-Host Hermes on a VPS Megathread, May 2026](https://www.reddit.com/r/hermesagent/comments/1tw9lbd/)
 
 ### Official Sources
 
@@ -383,11 +383,11 @@ hermes gateway start        # Start the service
 
 | Megathread | Best If You Want To... |
 |-----------|------------------------|
-| [Best Free Models & APIs](https://www.reddit.com/r/hermesagent/comments/1un5qjo/) | Find free/cheap models that actually work |
-| [Model Civil War: Local vs Cloud vs Hybrid](https://www.reddit.com/r/hermesagent/comments/1upvlm3/) | Decide between local, cloud, or hybrid deployment |
-| [Self-Host Hermes on a VPS](https://www.reddit.com/r/hermesagent/comments/1tbngbz/) | Run Hermes 24/7 on a cheap cloud server |
+| [Best Free Models & APIs](https://www.reddit.com/r/hermesagent/comments/1uj9nkn/) | Find free/cheap models that actually work |
+| [Model Civil War: Local vs Cloud vs Hybrid](https://www.reddit.com/r/hermesagent/comments/1uqd00s/) | Decide between local, cloud, or hybrid deployment |
+| [Self-Host Hermes on a VPS](https://www.reddit.com/r/hermesagent/comments/1tw9lbd/) | Run Hermes 24/7 on a cheap cloud server |
 | [Multi-Agent & Profiles](https://www.reddit.com/r/hermesagent/comments/1ucmvi8/) | Set up work/personal splits and multi-agent workflows |
-| [Top Posts of All Time](https://www.reddit.com/r/hermesagent/comments/1uqkz3e/) | See what the community's best work looks like |
+| [Top Posts of All Time](https://www.reddit.com/r/hermesagent/comments/1uqg0yz/) | See what the community's best work looks like |
 
 ---
 

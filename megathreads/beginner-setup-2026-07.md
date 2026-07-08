@@ -8,7 +8,7 @@
 
 ---
 
-Want to set up Hermes Agent but don't know where to start? This is the community-sourced guide for getting from zero to a working AI agent in under 20 minutes. It covers what the official docs don't tell you: the real first-time experience, the mistakes everyone makes, and the setup paths that actually work. No prior AI experience required.
+Want to set up Hermes Agent (by Nous Research) but don't know where to start? This community-sourced guide — updated for v0.18.0 — gets you from zero to a working AI agent in under 20 minutes. It covers what the official docs don't tell you: the real first-time experience, the mistakes everyone makes, and the setup paths that actually work. Basic terminal familiarity helps, but no AI experience required.
 
 ---
 
@@ -22,8 +22,9 @@ Want to set up Hermes Agent but don't know where to start? This is the community
 | **Local model path** | `hermes setup` → choose local/custom endpoint | For privacy, offline, or free local models |
 | **Where to ask for help** | This subreddit (HELP flair) + [Official Discord](https://discord.gg/nousresearch) | Fastest response from community |
 | **First thing to type** | `/help` or `hermes chat -q "What can you do?"` | Confirms everything works |
+| **Stuck?** | `hermes doctor` (or `hermes doctor --fix`) | Diagnoses install, config, and model connectivity in one command |
 
-**The single most important tip from the community:** Just install it and ask Hermes itself about your concerns. It's often faster than reading docs. [thread: "Initial setup for total newbie", Jun 18](https://www.reddit.com/r/hermesagent/comments/1u9f7xb/)
+**The single most important tip from the community:** Just install it and ask Hermes itself about your concerns. After setup, Hermes itself is often the fastest way to discover what it can do. [thread: "Initial setup for total newbie", Jun 18](https://www.reddit.com/r/hermesagent/comments/1u9f7xb/)
 
 ---
 
@@ -55,6 +56,8 @@ hermes setup                # Full wizard: pick model, tools, gateway, everythin
 
 `hermes setup --portal` signs you into Nous Portal, picks a working model, and drops you into chat. No config files, no API keys, no model selection stress. If you just want to see what Hermes can do, this is the path.
 
+**Bonus: If you're on a Nous Portal paid plan,** the Tool Gateway automatically bundles web search, image generation, TTS, and cloud browser — no separate API keys needed. This is the single biggest v0.18.0 quality-of-life upgrade for beginners. [Docs: Tool Gateway](https://hermes-agent.nousresearch.com/docs/integrations/nous-portal)
+
 ### OS-Specific Notes
 
 | Platform | Install Command | Watch For |
@@ -62,7 +65,7 @@ hermes setup                # Full wizard: pick model, tools, gateway, everythin
 | **macOS** | Desktop installer or curl one-liner | Works out of the box |
 | **Linux** | curl one-liner | Install `uv` if missing; gateway needs `systemd --user` or `loginctl enable-linger` |
 | **Windows (WSL2)** | curl one-liner inside WSL | Requires `systemd=true` in `/etc/wsl.conf` for gateway persistence |
-| **Windows (native)** | Desktop installer or PowerShell one-liner | Alt+Enter may conflict with fullscreen; use Ctrl+Enter for newlines |
+| **Windows (native)** | Desktop installer or PowerShell one-liner | Works out of the box. Windows Terminal users: Alt+Enter is captured for fullscreen — use Ctrl+Enter for newlines |
 
 **Community tip:** The gateway dies on WSL2 close without `systemd=true` — this is the #1 Windows support question. [thread: "How To Set Up Hermes (Desktop, Local + Cloud LLM, Profiles...)", Jun 30](https://www.reddit.com/r/hermesagent/comments/1ukkltg/)
 
@@ -93,8 +96,8 @@ Do you want to pay for API access?
 | **DeepSeek V3** | Cloud API | ~$0.27/M input, ~$1.10/M output | Very good | Best value cloud model |
 | **Gemini 2.5 Flash** | Cloud API | Free tier | Good | Best free cloud option |
 | **Qwen2.5-7B** | Local | Free | Good | Runs on 8GB VRAM |
-| **Gemma 3 12B** | Local | Free | Decent | Needs 12GB+ VRAM for usable speed |
-| **Llama 3 8B** | Local | Free | Weak | Only for testing, not real use |
+| **Gemma 3 12B** | Local | Free | Decent | Needs 12GB+ VRAM; CPU-only is impractically slow |
+| **Llama 3 8B** | Local | Free | Weak | Struggles with tool reliability; not recommended for agentic use |
 
 **Critical warning from the community:** 8B models (Llama 3 8B, Gemma 3 8B) are NOT enough for reliable tool use. Hermes needs at least a 12B model for consistent tool-calling. If your agent ignores tools or hallucinates commands, your model is too small. [thread: "why can not my hermes agent use tools?", Apr 21](https://www.reddit.com/r/hermesagent/comments/1srpkrz/)
 
@@ -126,7 +129,7 @@ hermes tools enable memory     # Remember preferences across sessions
 
 ### The #1 Beginner Trap: "Tools Not Available"
 
-**Dozens of beginners hit this:** They install Hermes, start chatting, and the agent can't use any tools. The fix: `/tools` shows no tools? That's because tools are **disabled by default** on some platforms. Run `hermes tools` to enable them, then `/reset` to start a fresh session. [thread: "For anybody hitting the /tools shows no tools available", May 25](https://www.reddit.com/r/hermesagent/comments/1tni92q/)
+**Dozens of beginners hit this:** They install Hermes, start chatting, and the agent can't use any tools. The fix: `/tools` shows no tools? That's because tools are **disabled by default** on some platforms. Run `hermes tools` to open the interactive picker — it's scoped per-platform, so enable tools for each platform you use (CLI, Desktop, Gateway). Then `/reset` to start a fresh session. [thread: "For anybody hitting the /tools shows no tools available", May 25](https://www.reddit.com/r/hermesagent/comments/1tni92q/)
 
 ### Tool Changes Require a Fresh Session
 
@@ -140,7 +143,7 @@ This is the second-most common frustration: you enable tools, they still don't w
 
 **Symptom:** You installed Hermes, then installed it again from a different method, and now you have TWO Hermes directories fighting each other. Docker containers get corrupted, configs conflict, nothing works.
 
-**Fix:** Uninstall completely (`hermes uninstall`), remove `~/.hermes/`, and reinstall once. Do NOT mix install methods (curl + git clone + Docker). Pick one. [thread: "I accidentally created a fetus in fetu Hermes Agent installation", Jun 24](https://www.reddit.com/r/hermesagent/comments/1uer0xy/)
+**Fix:** Uninstall completely (`hermes uninstall`), remove `~/.hermes/`, and reinstall once. Avoid running two installations concurrently. If you switch methods, cleanly uninstall the old one first. [thread: "I accidentally created a fetus in fetu Hermes Agent installation", Jun 24](https://www.reddit.com/r/hermesagent/comments/1uer0xy/)
 
 ### Pitfall #2: "Model Not Working" / Free Model Frustration
 
@@ -155,7 +158,7 @@ This is the second-most common frustration: you enable tools, they still don't w
 **Common causes:**
 - Model too small (8B class models fail at tool calling)
 - Tools not enabled (see Pitfall #2 of Part 3)
-- Using a model that's RLHF'd against tool use (Gemma 4, some OpenAI models)
+- Using a model that has poor instruction-following for tool use (some instruct-tuned models resist multi-step tool calling)
 - Context window too small for the task
 
 **Fix:** Switch to a model known for good tool-calling (DeepSeek V3, Claude, Qwen2.5-14B+). Run `hermes model` to pick a different one. [thread: "Hermes agent not working as expected!", May 18](https://www.reddit.com/r/hermesagent/comments/1th1gig/)
@@ -205,6 +208,7 @@ hermes profile create <name>     # New profile
 hermes --profile <name>          # Use a profile once
 hermes profile use <name>        # Set as default
 hermes profile list              # See all profiles
+<name> chat                      # v0.18.0: every profile gets its own shell command
 ```
 
 ---
@@ -215,9 +219,9 @@ Hermes v0.18.0 ships with three interfaces:
 
 | Interface | Best For | How to Launch |
 |-----------|----------|---------------|
-| **Desktop App** | Visual learners, multi-profile, coding projects | Download from hermes-agent.nousresearch.com |
+| **Desktop App** | Visual learners, multi-profile, coding projects | Download from hermes-agent.nousresearch.com (macOS/Windows) |
 | **CLI** | Terminal natives, scripting, remote/SSH | `hermes chat` (default) |
-| **TUI** | Rich terminal UI with panels, picker, sessions | `hermes chat` (if TUI is default) or `hermes --cli` to force CLI |
+| **TUI** | Rich terminal UI with pickers, session browser | `hermes --tui` or configure as default |
 
 ### Desktop App (v0.18.0)
 
@@ -226,6 +230,9 @@ The desktop app includes:
 - Memory graph (visual timeline of everything Hermes knows about you)
 - Remote-gateway connect (use your desktop on a different machine's Hermes)
 - Multi-profile concurrent sessions
+- `/learn` — turn anything into a reusable skill (highlight some text → `/learn`)
+- `/journey` — playable timeline of accumulated memories and skills
+- `/goal` — set a standing goal Hermes works toward across turns
 
 ---
 
@@ -294,7 +301,7 @@ hermes gateway start        # Start the service
 | **Install** | Desktop installer | One-click macOS/Windows install | Beginners | Recommended over CLI-only |
 | **Install** | curl one-liner | One-command Linux/macOS/WSL install | Most users | Don't mix with git clone or Docker |
 | **Install** | PowerShell install | Windows native install | Windows without WSL | Both paths are well-supported now |
-| **Install** | Docker install | Containerized Hermes | Servers, isolation | Not for desktop use |
+| **Install** | Docker install | Containerized Hermes | Servers, CI/CD pipelines | Not for daily desktop use |
 | **Setup** | `hermes setup --portal` | Quick Setup via Nous Portal | Beginners, zero-config | Requires internet |
 | **Setup** | `hermes setup` | Full interactive wizard | Power users, local models | Can be overwhelming |
 | **Model** | Nous Portal | Managed cloud models | Beginners | Free tier available |
@@ -303,7 +310,7 @@ hermes gateway start        # Start the service
 | **Model** | Local LLM (LM Studio) | Local inference on your GPU | Privacy, offline | Needs 8GB+ VRAM minimum |
 | **Model** | Local LLM (Ollama) | Local inference, easy setup | Quick local testing | Slower than LM Studio |
 | **Model** | OpenRouter | Multi-provider API gateway | Model comparison, one API key | Adds latency |
-| **Interface** | Desktop App | Visual app with Projects | Multi-profile, visual users | macOS/Windows/Linux |
+| **Interface** | Desktop App | Visual app with Projects | Multi-profile, visual users | macOS/Windows (Linux uses CLI) |
 | **Interface** | CLI | Terminal-based chat | SSH, scripting, speed | No visual pickers |
 | **Gateway** | Telegram/Discord/WhatsApp | Chat from your phone | Mobile access | Gateway must stay running |
 | **Tool** | Web search | Internet search + extraction | Research, current events | Enable early |

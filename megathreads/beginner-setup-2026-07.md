@@ -8,7 +8,7 @@
 
 ---
 
-Want to set up Hermes Agent (by Nous Research) but don't know where to start? This community-sourced guide — updated for v0.18.0 — gets you from zero to a working AI agent in under 20 minutes. It covers what the official docs don't tell you: the real first-time experience, the mistakes everyone makes, and the setup paths that actually work. Basic terminal familiarity helps, but no AI experience required.
+Want to set up Hermes Agent (by Nous Research) but don't know where to start? Hermes is an open-source, provider-agnostic AI agent that can use tools, run code, control your browser, and chat across multiple platforms — think of it as a personal AI assistant you control completely, not a corporate chatbot. This community-sourced guide — updated for v0.18.0 — gets you from zero to a working AI agent in under 20 minutes. It covers what the official docs don't tell you: the real first-time experience, the mistakes everyone makes, and the setup paths that actually work. Basic terminal familiarity helps, but no AI experience required.
 
 ---
 
@@ -21,7 +21,7 @@ Want to set up Hermes Agent (by Nous Research) but don't know where to start? Th
 | **First model for beginners** | Nous Portal free tier (auto-selected) | No API key, no payment, just works |
 | **Local model path** | `hermes setup` → choose local/custom endpoint | For privacy, offline, or free local models |
 | **Where to ask for help** | This subreddit (HELP flair) + [Official Discord](https://discord.gg/nousresearch) | Fastest response from community |
-| **First thing to type** | `/help` or `hermes chat -q "What can you do?"` | Confirms everything works |
+| **First thing to type** | `/help` (inside Hermes) or `hermes chat -q "What can you do?"` (in terminal) | Confirms everything works |
 | **Stuck?** | `hermes doctor` (or `hermes doctor --fix`) | Diagnoses install, config, and model connectivity in one command |
 
 **The single most important tip from the community:** Just install it and ask Hermes itself about your concerns. After setup, Hermes itself is often the fastest way to discover what it can do. [thread: "Initial setup for total newbie", Jun 18](https://www.reddit.com/r/hermesagent/comments/1u9f7xb/)
@@ -98,6 +98,8 @@ Do you want to pay for API access?
     ├── YES (8GB+ VRAM) → Run a local model via LM Studio or Ollama
     │   └── Recommended: Qwen2.5-7B or Gemma 3 12B (good tool-calling)
     │
+    ├── YES but <8GB VRAM → Treat as "no GPU" for Hermes purposes — use free cloud tier
+    │
     └── NO → Use a free cloud API tier
         └── Google Gemini (free tier) or DeepSeek (dirt-cheap API)
 ```
@@ -109,7 +111,7 @@ Do you want to pay for API access?
 | **Nous Portal default** | Cloud | Free to start | Excellent | Best zero-config option |
 | **DeepSeek V3** | Cloud API | ~$0.27/M input, ~$1.10/M output | Very good | Best value cloud model |
 | **Gemini 2.5 Flash** | Cloud API | Free tier | Good | Best free cloud option |
-| **Qwen2.5-7B** | Local | Free | Good | Runs on 8GB VRAM |
+| **Qwen2.5-7B** | Local | Free | Passable | Runs on 8GB VRAM; tool-calling is borderline at 7B — upgrade to 12B+ when possible |
 | **Gemma 3 12B** | Local | Free | Decent | Needs 12GB+ VRAM; CPU-only is impractically slow |
 | **Llama 3 8B** | Local | Free | Weak | Struggles with tool reliability; not recommended for agentic use |
 
@@ -161,7 +163,7 @@ This is the second-most common frustration: you enable tools, they still don't w
 
 ### Pitfall #2: "Model Not Working" / Free Model Frustration
 
-**The reality:** Hermes Agent is free and open-source. The models it connects to may not be. Free models often have weak tool-calling, small context windows, or rate limits that break agent workflows. The community's blunt answer: you need a capable model, and most free models aren't capable enough for agentic tasks. [thread: "WHY TF is Hermes not working with any free model!!", May 25](https://www.reddit.com/r/hermesagent/comments/1tn6t8i/)
+**The reality:** Hermes Agent is free and open-source. The models it connects to may not be. Free models often have weak tool-calling, small context windows, or rate limits that break agent workflows. This sounds harsh, but the fix is simple — several free or dirt-cheap options actually work well. [thread: "Why is Hermes not working with any free model?", May 25](https://www.reddit.com/r/hermesagent/comments/1tn6t8i/)
 
 **The fix:** Use Nous Portal's free tier, Google Gemini's free tier, or DeepSeek's cheap API (~$0.27/M input tokens — a few dollars goes a long way). Or run a local 12B+ model.
 
@@ -171,7 +173,7 @@ This is the second-most common frustration: you enable tools, they still don't w
 
 **Common causes:**
 - Model too small (8B class models fail at tool calling)
-- Tools not enabled (see Pitfall #2 of Part 3)
+- Tools not enabled (see "The #1 Beginner Trap" in Part 3)
 - Using a model that has poor instruction-following for tool use (some instruct-tuned models resist multi-step tool calling)
 - Context window too small for the task
 
@@ -394,3 +396,20 @@ hermes gateway start        # Start the service
 **GitHub mirror for permanent indexing:** [github.com/AtlasOmnia/hermesagent-megathreads](https://github.com/AtlasOmnia/hermesagent-megathreads/blob/main/megathreads/beginner-setup-2026-07.md) — open an issue or PR to suggest updates.
 
 *Last refreshed: July 8, 2026.*
+
+---
+
+## Part 11: You're Set Up — Now What?
+
+Here's what to do in your first week with Hermes:
+
+| Day | Try This | What It Teaches You |
+|-----|----------|---------------------|
+| **Day 1** | Run `/help` and ask Hermes about itself | Discover what tools and features are available |
+| **Day 2** | Ask Hermes to do a real task: "Search the web for X and summarize the results" | See agentic tool use in action |
+| **Day 3** | Explore the Desktop App (if installed): memory graph, `/journey`, `/learn` | Understand what Hermes has learned about you |
+| **Day 4** | Set up the gateway: `hermes gateway setup` → pick Telegram or Discord | Chat with Hermes from your phone |
+| **Day 5** | Create a profile: `hermes profile create <name>` for a separate use case | Keep work and personal contexts isolated |
+| **Week 2** | Browse the [Skills Hub](https://hermes-agent.nousresearch.com/docs/reference/skills-catalog/) | Extend Hermes with community-built capabilities |
+
+Join the [Official Discord](https://discord.gg/nousresearch) — the fastest place to get help when you're stuck.

@@ -7,6 +7,7 @@ The Reddit posts are good for discussion and visibility. This repo is for keepin
 ## Megathreads
 
 - [Free Models and APIs for Hermes Agent — June 2026](megathreads/free-models-apis-2026-06.md)
+- [How to Set Up Hermes Agent from Scratch — July 2026 (Beginner Guide)](megathreads/beginner-setup-2026-07.md)
 
 ## How to suggest an update
 

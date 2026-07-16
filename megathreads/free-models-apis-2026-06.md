@@ -1,13 +1,13 @@
-# Free Models and APIs for Hermes Agent — Megathread (June 2026)
+# Free Models and APIs for Hermes Agent — Historical June 2026 Snapshot
 
 > Community-maintained GitHub version of the Reddit megathread.
 >
 > Original Reddit thread: https://www.reddit.com/r/hermesagent/comments/1uj9nkn/free_models_apis_for_hermes_agent_megathread_june/
 >
-> This file preserves the original megathread content and adds comment-sourced updates where users clarified practical usage, GitHub maintenance, and contribution workflow.
+> This file preserves the June 2026 megathread as a historical snapshot and adds comment-sourced corrections. **It is not a current availability or pricing list.** Free model IDs, quotas, and routes change quickly; verify the provider's live API/catalog immediately before configuration.
 
 
-**LAST UPDATED: June 29, 2026**\
+**LAST UPDATED: July 16, 2026**\
 **Scope:** Free models available via OpenRouter and other free API
 sources — what's available, what the community uses, and what works for
 different use cases.\
@@ -16,7 +16,9 @@ OpenRouter model listings/category rankings, API provider documentation.
 
 ------------------------------------------------------------------------
 
-## Part 1: TL;DR — Quick Picks
+## Part 1: Historical June 2026 Quick Picks
+
+> **Current-status correction (July 16, 2026):** These are the original post's picks, not current recommendations. A live OpenRouter catalog check performed during release review did not show the former `:free` IDs for DeepSeek V4 Flash, gpt-oss-120b, LFM2.5 thinking/instruct, or Owl Alpha. Owl Alpha's page still resolved but its API-catalog status was ambiguous. Laguna XS.2 appeared superseded by a newer release. Treat every row below as historical until its exact model ID is confirmed in the provider's current API catalog.
 
 | Decision | Community Pick | Runner-Up |
 |----|----|----|
@@ -35,9 +37,10 @@ work as paid flagships. For unattended/agentic tasks, users report
 needing detailed step-by-step instructions often drafted by a better
 model (e.g., Claude, GPT 5.5).
 
-All 26 free models at:
+At the original June 2026 capture, the post reported 26 free models at:
 <https://openrouter.ai/models?max_price=0&input_modalities=text&supported_parameters=tools>
-(18 text→text with tools; 26 total across all modalities).
+
+That count is not durable. Use the live filtered catalog rather than the historical number.
 
 ------------------------------------------------------------------------
 
@@ -67,7 +70,7 @@ Solid performers with good community feedback.
 | **[Llama 3.3 70B](https://openrouter.ai/meta-llama/llama-3.3-70b-instruct:free)** (Meta) | 70B dense | 131K | — | Multilingual dialogue, broad benchmarks |
 | **[Qwen3 Next 80B A3B](https://openrouter.ai/qwen/qwen3-next-80b-a3b-instruct:free)** (Qwen) | 3B / 80B | 256K | — | RAG, tool use, agentic workflows, no thinking traces |
 | **[Nemotron 3 Ultra](https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free)** (NVIDIA) | 55B / 550B | 1M | Finance \#32 | Frontier reasoning, orchestration, coding agents |
-| **DeepSeek V4 Flash** | — | — | — | Community favorite for speed; mixed reliability reports |
+| **DeepSeek V4 Flash (historical route)** | — | — | — | Former community speed pick; the prior OpenRouter free ID was not present in the live API catalog during the July 16 review. Verify direct/aggregator pricing and availability. |
 
 ------------------------------------------------------------------------
 
@@ -78,7 +81,7 @@ Focused models for specific tasks.
 | Model | Active Params | Context | Best For |
 |----|----|----|----|
 | **[Qwen3 Coder 480B](https://openrouter.ai/qwen/qwen3-coder:free)** (Qwen) | 35B / 480B | 1.05M | Agentic coding, function calling, repo-level reasoning |
-| **[Laguna XS.2](https://openrouter.ai/poolside/laguna-xs.2:free)** (Poolside) | — | 256K | Efficient coding agent, compact footprint |
+| **Laguna XS.2 (legacy June entry)** | — | 256K | Efficient coding agent in the original snapshot; verify the current successor/model ID before use |
 | **[Nemotron 3 Nano 30B](https://openrouter.ai/nvidia/nemotron-3-nano-30b-a3b:free)** (NVIDIA) | 3B / 30B | 256K | Specialized agentic AI, customization |
 | **[Nemotron 3 Nano Omni](https://openrouter.ai/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free)** (NVIDIA) | 3B / 30B | 256K | Multimodal perception sub-agent — text, image, video, audio |
 | **[gpt-oss-20b](https://openrouter.ai/openai/gpt-oss-20b:free)** (OpenAI) | 3.6B / 21B | 131K | Consumer/GPU hardware, function calling, structured outputs |
@@ -380,6 +383,15 @@ living resource — new free models appear regularly and rankings shift.
 ---
 
 ## Comment-Sourced Updates Added From Reddit
+
+
+### July 16 status and reliability corrections
+
+- **Free does not mean durable.** Commenters reported trial keys exhausting within minutes and models disappearing from free routes. Check the live provider/model page immediately before configuring a production route.
+- **OpenRouter and direct-provider behavior can differ.** Latency, caching, quota, and model availability reported through an aggregator do not necessarily describe the direct API.
+- **DeepSeek and Owl Alpha status changed during the thread.** Their entries below are historical snapshots, not guarantees of current free availability.
+- **NVIDIA-hosted Nemotron quotas were reported as limited.** Verify the current NVIDIA NIM quota before depending on it.
+- **Unverified additions stay in the comment archive.** SiliconFlow, OpenCode, GonkaRouter, Requesty, Stepfun, and individual Google AI Studio error reports are not promoted to canonical recommendations without current official confirmation.
 
 These notes came from the discussion under the original Reddit post. They are included here so the GitHub version reflects the thread, not just the original post.
 

@@ -6,8 +6,30 @@ The Reddit posts are good for discussion and visibility. This repo is for keepin
 
 ## Megathreads
 
-- [Free Models and APIs for Hermes Agent — June 2026](megathreads/free-models-apis-2026-06.md)
-- [How to Set Up Hermes Agent from Scratch — July 2026 (Beginner Guide)](megathreads/beginner-setup-2026-07.md)
+### Start here
+
+- [How to Set Up Hermes Agent from Scratch — July 2026](megathreads/beginner-setup-2026-07.md)
+- [Agent Trust Boundary — July 2026](megathreads/agent-trust-boundary-2026-07.md)
+
+### Operations and architecture
+
+- [Integrations, Plugins, and Skills Ecosystem — June 2026](megathreads/integrations-plugins-skills-2026-06.md)
+- [Kanban Setups — June 2026](megathreads/kanban-setups-2026-06.md)
+- [Multi-Agent and Profiles — June 2026](megathreads/multi-agent-profiles-2026-06.md)
+- [VPS and Deployment — June 2026](megathreads/vps-deployment-2026-06.md)
+- [Cost and Token Optimization — June 2026](megathreads/cost-token-optimization-2026-06.md)
+
+### Models and providers
+
+- [Free Models and APIs — Historical June 2026 snapshot, reviewed July 2026](megathreads/free-models-apis-2026-06.md)
+- [Models, Providers, and Plans — July 2026](megathreads/models-providers-plans-2026-07.md)
+- [Mac and MLX on Apple Silicon — June 2026](megathreads/mac-mlx-apple-silicon-2026-06.md)
+- [Qwen3.6-27B Community Variants — Historical guide, July 2026](megathreads/qwen3.6-27b-community-variants-2026-07.md)
+- [Qwen3.6-35B-A3B Community Variants — Historical guide, July 2026](megathreads/qwen3.6-35b-a3b-community-variants-2026-07.md)
+
+### Community catalog
+
+- [Hermes Agent Use Cases — July 2026](megathreads/hermes-agent-use-cases-2026-07.md)
 
 ## How to suggest an update
 

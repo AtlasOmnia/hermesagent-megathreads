@@ -5,7 +5,7 @@ Combined refresh of the May 24, 2026 originals and the July 8 v2 posts, covering
 
 GitHub mirror (permanent, Google-indexed): https://github.com/AtlasOmnia/hermesagent-megathreads/blob/main/megathreads/qwen3.6-combined-community-variants-2026-07.md
 Original threads: 35B-A3B https://old.reddit.com/r/hermesagent/comments/1tmp2qy/ · 27B https://old.reddit.com/r/hermesagent/comments/1tn4lye/
-See also: Free Models & APIs (https://old.reddit.com/r/hermesagent/comments/1un5qjo/) · Model Civil War — local vs cloud vs hybrid (https://old.reddit.com/r/hermesagent/comments/1upvlm3/)
+See also: Free Models & APIs (https://old.reddit.com/r/hermesagent/comments/1uj9nkn/) · Model Civil War — local vs cloud vs hybrid (https://old.reddit.com/r/hermesagent/comments/1uqd00s/)
 
 ---
 

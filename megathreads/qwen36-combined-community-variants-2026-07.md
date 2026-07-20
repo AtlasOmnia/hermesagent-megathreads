@@ -1,7 +1,7 @@
 # Qwen3.6 Community Variants — 27B (Dense) & 35B-A3B (MoE) Definitive Guide for Limited Local Hardware
 
 LAST UPDATED: July 20, 2026
-Combined refresh of the May 24, 2026 originals and the July 8 v2 posts, covering both Qwen3.6 local flagships + the NVFP4-MTP Blackwell frontier. This is a community resource, not a sales funnel. No benchmarks here are independent; all are publisher-reported unless explicitly noted (85 GPU-hour shootout by nathandreamfast).
+Combined refresh of the May 24, 2026 originals and the July 8 v2 posts, covering both Qwen3.6 local flagships + the NVFP4-MTP Blackwell frontier. This is a community resource, not a sales funnel. No benchmarks here are independent; all are publisher-reported unless explicitly noted. The one independent community test is the [85 GPU-hour shootout by nathandreamfast](https://reddit.com/r/LocalLLaMA/comments/1tfmocw/).
 
 GitHub mirror (permanent, Google-indexed): https://github.com/AtlasOmnia/hermesagent-megathreads/blob/main/megathreads/qwen36-combined-community-variants-2026-07.md
 Original threads: 35B-A3B https://reddit.com/r/hermesagent/comments/1tmp2qy/ · 27B https://reddit.com/r/hermesagent/comments/1tn4lye/
@@ -149,7 +149,7 @@ https://huggingface.co/llmfan46/Qwen3.6-27B-uncensored-heretic-v2-Native-MTP-Pre
 What: Combination abliteration + decensor (MPOA method). Uses Heretic v1.3.0. Native MTP preserved in 27B version. NVFP4 variant released July 2026 (11.9K downloads).
 
 **Quality vs base (HF card verified — best-preservation data in this guide):**
-- **KL divergence: 0.0021** (vs 0.0469 for DavidAU Heretic — **22× closer to base behavior**)
+- **KL divergence (lower = closer to base distribution): 0.0021** (vs 0.0469 for DavidAU Heretic — **22× closer to base behavior**)
 - **Refusals: 6/100** (vs 92/100 original) — 94% fewer refusals
 - **MMLU: 86.65% (original) → 85.67% (Heretic)** = 0.98% drop
 - **No SWE-bench / AIME data listed** — capability preservation inferred from MMLU + KL
@@ -233,6 +233,7 @@ WHY PICK IT: Jackrong recipe is proven. Preference for 4.6 reasoning traces over
 
 **AEON Ultimate Uncensored** — 35B NVFP4: no downloads (separate repo) | 27B BF16: 18,340 downloads, 135 likes
 https://huggingface.co/AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-BF16
+NVFP4 variant: https://huggingface.co/AEON-7/Qwen3.6-35B-A3B-heretic-NVFP4 (245K downloads)
 
 What: "Lossless abliteration." Publisher claims capabilities "measurably enhanced" (not just preserved). Zero refusal claim on 100-prompt test.
 
@@ -269,7 +270,7 @@ Claims "exceeds 6/7 benchmarks vs base 27B, exceeds all 7 for 35B-A3B."
 
 - Publisher claim: "First model this size to breach 700 ARC-C in both 8-bit and 4-bit."
 - ⚠️ **NO SWE-bench / AIME / community independent verification.** In-house (Nightmedia) numbers only.
-- GGUF: Q4_K_M ~16 GB
+|- GGUF: Q4_K_M ~24 GB (corrected; previously listed as 16 GB — a 40B model at Q4 is ~24 GB)
 
 Community reaction (r/LocalLLaMA, mixed):
 - u/Murflaw7424: "this model slaps. For document analysis, tool calls have not skipped a beat... LESS verbose and less prone to getting stuck in a loop."
@@ -319,6 +320,22 @@ Loop risk: Same as other reasoning-distilled variants. Use reasoning budget 4096
 Best for: Reasoning + coding on MoE (when MTP arrives)
 VRAM: Q4_K_M ~19 GB (estimated)
 WHY PICK IT: Opus distill recipe on 35B-A3B. **Currently underperforms unsloth AgentWorld + llmfan46 heretic since no MTP yet and no benchmarks.** Wait for MTP or independent eval before adopting.
+
+---
+
+**Jackrong Qwopus3.6-35B-A3B-Coder-MTP-GGUF** — 500,846 downloads, 100+ likes
+https://huggingface.co/Jackrong/Qwopus3.6-35B-A3B-Coder-MTP-GGUF
+
+What: Agentic coding fine-tune on Qwopus3.6-35B-A3B-v1 with MTP. Thinking-off, token-efficient design for fast agent loops. Built for Codex/OpenHands/Claude Code-style harnesses.
+
+Quality vs base: ⚠️ **No independent benchmarks listed.** Card claims "execution efficiency" improvements over base. The 27B Coder sibling (67% SWE-bench, -10% vs base) shows regression risk carries over to MoE variants — expect similar tradeoffs.
+
+Loop risk: Lower than base with thinking enabled (thinking-off design). But tool-leakage risk exists in long agentic chains per community reports.
+
+Best for: Agentic coding workflows on 35B MoE where MTP speed matters
+VRAM: Q4_K_M ~19 GB (GGUF), 500K+ downloads = strongest adoption of any 35B MoE variant
+WHY PICK IT: If you want 35B MoE for coding agents and can tolerate the unverified benchmark gap. **Prefer unsloth AgentWorld for proven agent-tuning; pick this only if you need the Qwopus-style reasoning traces.**
+Don't use if: You need verified SWE-bench numbers or proven agent-loop stability — no independent evals published yet.
 
 ---
 
@@ -499,6 +516,7 @@ Quality vs base: Same arc-c/arc-e improvements as uncensored version. No capabil
 Best for: Users who want coding gains without removing refusals
 VRAM: Q4_K_M ~15.7 GB
 WHY PICK IT: If you want NEO-CODE but your use case doesn't need uncensored.
+Don't use if: You need uncensored behavior — use the Heretic version instead.
 
 ---
 
@@ -511,7 +529,7 @@ https://huggingface.co/rico03/Qwen3.6-27B-Claude-Opus-Reasoning-Distilled-GGUF
 
 What: SFT on ~14K Claude 4.6 Opus reasoning traces using Jackrong's methodology. Structured `<think>...</think>` blocks. Apache 2.0.
 
-**Quality vs base (HF card verified):**
+**Card data (base benchmarks listed, no delta published):**
 - **Training data:** ~14K traces from nohurry 3000x Opus 4.6 + Roman111111 10K Opus dataset
 - **Methodology:** Jackrong recipe adapted for Qwen3.6-27B
 - **GGUF sizes:** Q2_K ~10GB, Q3_K_M ~13GB, Q4_K_M 16.5GB, Q5_K_M ~19GB, Q6_K ~22GB, Q8_0 28.6GB
@@ -644,6 +662,7 @@ Best for: Structured output, coding. Same caveats as 35B.
 ---
 
 ## 🔴 THE NVFP4-MTP FRONTIER — Honest take (Blackwell only)
+Methods test results: [85 GPU-hour community shootout](https://reddit.com/r/LocalLLaMA/comments/1tfmocw/) is the only independent abliteration comparison.
 
 NVFP4 is NVIDIA's native 4-bit float format. On Blackwell (RTX 5090, B-series) it gives near-FP8 quality at roughly half the footprint of FP8. Combine with MTP and you get 35B MoE or 27B dense running fast on single 24GB cards.
 
@@ -711,7 +730,7 @@ Publisher claims are often "near-lossless." Reality: **NVFP4 is a quantization.*
 | llmfan46 27B heretic-v2 NVFP4 MTP | 11,869 | llmfan46 |
 | utautako 27B NVIDIA-NVFP4-MTP | 15,500 (est) | utautako |
 
-**Operator's take (michaelw9999):** daily-drives michaelw9999/Qwen3.6-27B-NVFP4-MTP-GGUF via llama.cpp MTP (--spec-draft-n-max 2). The 27B dense at NVFP4 is largest dense model fitting single 24GB Blackwell with context headroom. The 35B MoE at NVFP4 is largest MoE for same card. The 45-day community report (u/1uyukbe) and template-fix note (u/i_am_me0_0) are why this guide leans 27B-dense for agentic work and flags the deep-thinking loop as thing to disable first.
+**Editor's take (michaelw9999):** daily-drives michaelw9999/Qwen3.6-27B-NVFP4-MTP-GGUF via llama.cpp MTP (--spec-draft-n-max 2). The 27B dense at NVFP4 is largest dense model fitting single 24GB Blackwell with context headroom. The 35B MoE at NVFP4 is largest MoE for same card. The 45-day community report (u/1uyukbe) and template-fix note (u/i_am_me0_0) are why this guide leans 27B-dense for agentic work and flags the deep-thinking loop as thing to disable first.
 
 ---
 
@@ -772,7 +791,7 @@ IQ (importance-aware) quants usually outperform same-size K quants. Prefer IQ3_M
 | Aggressive uncensored | **HauhauCS Uncensored-Aggressive** | 2M+ downloads = proven stable, 0/465 refusals | Provenance controversy (unverified); no benchmarks listed |
 | Document analysis | **DavidAU 40B Opus-Deckard NEO-CODE** | Mixed community reports, +4-14% on some in-house benchmarks | Polarizing; no SWE-bench/AIME listed; some say "schizo models" |
 | AMD 7900 XTX | **plunderstruck MTP-ROCmFP4** | ROCm FP4 path | Smaller community |
-| Mac / low-VRAM | **Gemma 4 12B Q8 MTP** | Fast and reliable on Mac | Not Qwen — different ecosystem |
+|| Mac 24GB (M-series) | **Qwen3.6-27B Q4_K_M** (preferred) or **Gemma 4 12B Q8 MTP** | 27B fits 24GB unified memory at Q4 with context room; Gemma is faster but different ecosystem | Qwen ok on Mac, prefer Gemma for speed |
 | Long-horizon agents | **Gemma 4 31B or 26B** | Some users prefer it over Qwen for long agent loops | Not Qwen — different ecosystem |
 
 ---
@@ -814,14 +833,14 @@ IQ (importance-aware) quants usually outperform same-size K quants. Prefer IQ3_M
 - ⚠️ NVFP4 is still a quantization — expect 8-10% loss on SWE-bench / coding-heavy tasks. Not mathematically-lossless.
 - MTP: no `-np > 1`, no `--mmproj` (vision) with MTP on some builds. Verify per backend.
 - Deep-thinking loop: disable as described, OR use reasoning-distilled builds, OR set reasoning budget to 4096 tokens max.
-- Download counts are root-repo aggregates and grow monotonically; treat any "decrease" as repo-ID mismatch.
-- Froggeric chat template fixes tool-calling bugs. Use it if you're having tool-call issues: https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates
+- Download counts are root-repo aggregates and grow monotonically; treat any "decrease" as repo-ID mismatch. Entries marked **(est)** are estimated from HF API search results (not direct repo counts) and may be ±10%.
+- Froggeric chat template fixes tool-calling bugs. See START HERE section above for link.
 
 ---
 
 ## EDITOR'S RIG (field-tested)
 
-The operator runs michaelw9999/Qwen3.6-27B-NVFP4-MTP-GGUF on a Blackwell GPU via llama.cpp MTP (--spec-draft-n-max 2) as daily driver, spot-runs the 35B-A3B NVFP4-MTP. Both are NVFP4 + MTP. The 27B dense at NVFP4 is largest dense model fitting single 24GB Blackwell with context headroom; 35B MoE at NVFP4 is largest MoE fitting same card. The 45-day community report (u/1uyukbe) and template-fix note (u/i_am_me0_0) are why this guide leans 27B-dense for agentic work and flags deep-thinking loop as thing to disable first.
+The editor runs michaelw9999/Qwen3.6-27B-NVFP4-MTP-GGUF on a Blackwell GPU via llama.cpp MTP (--spec-draft-n-max 2) as daily driver, spot-runs the 35B-A3B NVFP4-MTP. Both are NVFP4 + MTP. The 27B dense at NVFP4 is largest dense model fitting single 24GB Blackwell with context headroom; 35B MoE at NVFP4 is largest MoE fitting same card. The 45-day community report (u/1uyukbe) and template-fix note (u/i_am_me0_0) are why this guide leans 27B-dense for agentic work and flags deep-thinking loop as thing to disable first.
 
 ---
 
@@ -838,7 +857,7 @@ The operator runs michaelw9999/Qwen3.6-27B-NVFP4-MTP-GGUF on a Blackwell GPU via
 - SWE-rebench leaderboard update: GLM-5.2, Qwen3.6-27B (r/LocalLLaMA): https://reddit.com/r/LocalLLaMA/comments/1uknx14/
 
 **Model cards verified:**
-- DavidAU: https://huggingface.co/DavidAU/Qwen3.6-27B-Heretic-Uncensored-FINETUNE-NEO-CODE-Di-IMatrix-MAX-GGUF (131K downloads, 402 likes) and https://huggingface.co/DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF (16.7K downloads, 135 likes)
+- DavidAU: https://huggingface.co/DavidAU/Qwen3.6-27B-Heretic-Uncensored-FINETUNE-NEO-CODE-Di-IMatrix-MAX-GGUF (131K downloads, 402 likes) and https://huggingface.co/DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF (16.7K downloads, 135 likes) and https://huggingface.co/DavidAU/Qwen3.6-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking-NEO-CODE-Di-IMatrix-MAX-GGUF (40B Deckard variant)
 - Jackrong: https://huggingface.co/Jackrong/Qwopus3.6-27B-v2-MTP-GGUF (90.9K downloads) and https://huggingface.co/Jackrong/Qwopus3.6-27B-Coder-MTP-GGUF (125.3K downloads)
 - lordx64: https://huggingface.co/lordx64/Qwen3.6-35B-A3B-Claude-4.7-Opus-Reasoning-Distilled (29.9K downloads, 197 likes)
 - rico03: https://huggingface.co/rico03/Qwen3.6-27B-Claude-Opus-Reasoning-Distilled-GGUF (7.4K downloads)
@@ -850,6 +869,8 @@ The operator runs michaelw9999/Qwen3.6-27B-NVFP4-MTP-GGUF on a Blackwell GPU via
 - Froggeric patched templates: https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates
 
 ---
+
+v4.6 — July 20, 2026: FRIDAY critique fixes: corrected 40B VRAM, added shootout inline links, Qwen Mac pick, Qwopus 35B Coder MTP entry, AEON NVFP4 link, DavidAU SOURCES.
 
 v4.5 — July 20, 2026: Major revision per Fable (Claude Fable 5) independent critique. Added:
 - ⚠️ START HERE with "Don't pick if" column for each row

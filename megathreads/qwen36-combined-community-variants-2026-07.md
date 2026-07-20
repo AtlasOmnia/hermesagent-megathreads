@@ -4,8 +4,8 @@ LAST UPDATED: July 20, 2026
 Combined refresh of the May 24, 2026 originals and the July 8 v2 posts, covering both Qwen3.6 local flagships + the NVFP4-MTP Blackwell frontier. This is a community resource, not a sales funnel. No benchmarks here are independent; all are publisher-reported unless explicitly noted (85 GPU-hour shootout by nathandreamfast).
 
 GitHub mirror (permanent, Google-indexed): https://github.com/AtlasOmnia/hermesagent-megathreads/blob/main/megathreads/qwen36-combined-community-variants-2026-07.md
-Original threads: 35B-A3B https://old.reddit.com/r/hermesagent/comments/1tmp2qy/ · 27B https://old.reddit.com/r/hermesagent/comments/1tn4lye/
-See also: Free Models & APIs (https://old.reddit.com/r/hermesagent/comments/1uj9nkn/) · Model Civil War — local vs cloud vs hybrid (https://old.reddit.com/r/hermesagent/comments/1uqd00s/)
+Original threads: 35B-A3B https://reddit.com/r/hermesagent/comments/1tmp2qy/ · 27B https://reddit.com/r/hermesagent/comments/1tn4lye/
+See also: Free Models & APIs (https://reddit.com/r/hermesagent/comments/1uj9nkn/) · Model Civil War — local vs cloud vs hybrid (https://reddit.com/r/hermesagent/comments/1uqd00s/)
 
 ---
 
@@ -828,14 +828,14 @@ The operator runs michaelw9999/Qwen3.6-27B-NVFP4-MTP-GGUF on a Blackwell GPU via
 ## SOURCES
 
 **Community threads (verified July 19-20, 2026):**
-- 85 GPU-hours comparing 5 abliteration methods on Qwen3.6-27B (nathandreamfast, r/LocalLLaMA): https://old.reddit.com/r/LocalLLaMA/comments/1tfmocw/
-- Best Local Agents - Jun 2026 (r/LocalLLaMA, active through July): https://old.reddit.com/r/LocalLLaMA/comments/1uaebfe/
-- Qwen 3.6 27B Makes Huge Gains in Agency (r/LocalLLaMA): https://old.reddit.com/r/LocalLLaMA/comments/1strodp/
-- DavidAU/Qwen3.6-40B Discussion (r/LocalLLaMA): https://old.reddit.com/r/LocalLLaMA/comments/1tlykbg/
-- lordx64 Opus 4.7 Distilled Release (r/LLMStudio): https://old.reddit.com/r/LLMStudio/comments/1spzwo8/
-- I ran Qwen 3.6 locally for 45 days (u/1uyukbe, r/LocalLLM): https://old.reddit.com/r/LocalLLM/comments/1uyukbe/
-- Best models for your hardware this week (r/LocalLLM): https://old.reddit.com/r/LocalLLM/comments/1u0w8g9/
-- SWE-rebench leaderboard update: GLM-5.2, Qwen3.6-27B (r/LocalLLaMA): https://old.reddit.com/r/LocalLLaMA/comments/1uknx14/
+- 85 GPU-hours comparing 5 abliteration methods on Qwen3.6-27B (nathandreamfast, r/LocalLLaMA): https://reddit.com/r/LocalLLaMA/comments/1tfmocw/
+- Best Local Agents - Jun 2026 (r/LocalLLaMA, active through July): https://reddit.com/r/LocalLLaMA/comments/1uaebfe/
+- Qwen 3.6 27B Makes Huge Gains in Agency (r/LocalLLaMA): https://reddit.com/r/LocalLLaMA/comments/1strodp/
+- DavidAU/Qwen3.6-40B Discussion (r/LocalLLaMA): https://reddit.com/r/LocalLLaMA/comments/1tlykbg/
+- lordx64 Opus 4.7 Distilled Release (r/LLMStudio): https://reddit.com/r/LLMStudio/comments/1spzwo8/
+- I ran Qwen 3.6 locally for 45 days (u/1uyukbe, r/LocalLLM): https://reddit.com/r/LocalLLM/comments/1uyukbe/
+- Best models for your hardware this week (r/LocalLLM): https://reddit.com/r/LocalLLM/comments/1u0w8g9/
+- SWE-rebench leaderboard update: GLM-5.2, Qwen3.6-27B (r/LocalLLaMA): https://reddit.com/r/LocalLLaMA/comments/1uknx14/
 
 **Model cards verified:**
 - DavidAU: https://huggingface.co/DavidAU/Qwen3.6-27B-Heretic-Uncensored-FINETUNE-NEO-CODE-Di-IMatrix-MAX-GGUF (131K downloads, 402 likes) and https://huggingface.co/DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF (16.7K downloads, 135 likes)

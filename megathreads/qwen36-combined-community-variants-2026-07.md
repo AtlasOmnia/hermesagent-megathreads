@@ -4,8 +4,8 @@ LAST UPDATED: July 20, 2026
 Combined refresh of the May 24, 2026 originals and the July 8 v2 posts, covering both Qwen3.6 local flagships + the NVFP4-MTP Blackwell frontier. This is a community resource, not a sales funnel. No benchmarks here are independent; all are publisher-reported unless explicitly noted (85 GPU-hour shootout by nathandreamfast).
 
 GitHub mirror (permanent, Google-indexed): https://github.com/AtlasOmnia/hermesagent-megathreads/blob/main/megathreads/qwen3.6-combined-community-variants-2026-07.md
-Original threads: 35B-A3B https://www.reddit.com/r/hermesagent/comments/1tmp2qy/ · 27B https://www.reddit.com/r/hermesagent/comments/1tn4lye/
-See also: Free Models & APIs (https://www.reddit.com/r/hermesagent/comments/1un5qjo/) · Model Civil War — local vs cloud vs hybrid (https://www.reddit.com/r/hermesagent/comments/1upvlm3/)
+Original threads: 35B-A3B https://old.reddit.com/r/hermesagent/comments/1tmp2qy/ · 27B https://old.reddit.com/r/hermesagent/comments/1tn4lye/
+See also: Free Models & APIs (https://old.reddit.com/r/hermesagent/comments/1un5qjo/) · Model Civil War — local vs cloud vs hybrid (https://old.reddit.com/r/hermesagent/comments/1upvlm3/)
 
 ---
 

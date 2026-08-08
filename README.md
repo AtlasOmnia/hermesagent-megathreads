@@ -21,7 +21,7 @@ The Reddit posts are good for discussion and visibility. This repo is for keepin
 
 ### Models and providers
 
-- [Free Models and APIs — Historical June 2026 snapshot, reviewed July 2026](megathreads/free-models-apis-2026-06.md)
+- [Free Models and APIs — Historical June 2026 snapshot, reviewed July 2026](megathreads/free-models-apis-2026-06.md) — [dated release](https://github.com/AtlasOmnia/hermes-megathreads/releases/tag/2026-06)
 - [Models, Providers, and Plans — July 2026](megathreads/models-providers-plans-2026-07.md)
 - [Mac and MLX on Apple Silicon — June 2026](megathreads/mac-mlx-apple-silicon-2026-06.md)
 - [Qwen3.6-27B Community Variants — Historical guide, July 2026](megathreads/qwen3.6-27b-community-variants-2026-07.md)
